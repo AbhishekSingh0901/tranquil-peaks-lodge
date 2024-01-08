@@ -101,6 +101,7 @@ function BookingRow({
             <Menus.Button
               icon={<HiEye />}
               onClick={() => navigate(`/bookings/${bookingId}`)}
+              disabled={isDeleting || isCheckingOut}
             >
               See Details
             </Menus.Button>
@@ -116,7 +117,7 @@ function BookingRow({
               <Menus.Button
                 icon={<HiArrowUpOnSquare />}
                 onClick={() => checkout(bookingId)}
-                disabled={isCheckingOut}
+                disabled={isCheckingOut || isDeleting}
               >
                 Check out
               </Menus.Button>

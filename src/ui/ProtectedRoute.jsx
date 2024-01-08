@@ -14,7 +14,7 @@ const FullPage = styled.div`
 
 function ProtectedRoute({ children }) {
   //1. Loead authenticated user
-  const { user, isLoading, isAuthenticated } = useUser();
+  const { isLoading, isAuthenticated } = useUser();
   const navigate = useNavigate();
 
   //2. No authenticated user , redirect to the /login page
@@ -24,7 +24,7 @@ function ProtectedRoute({ children }) {
         navigate("/login");
       }
     },
-    [isAuthenticated, navigate]
+    [isAuthenticated, navigate, isLoading]
   );
 
   //3. While loading, show a spinner

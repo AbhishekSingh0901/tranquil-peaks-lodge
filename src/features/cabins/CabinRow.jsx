@@ -95,7 +95,9 @@ function CabinRow({ cabin }) {
                   Duplicate
                 </Menus.Button>
                 <Modal.Open opens="edit-form">
-                  <Menus.Button icon={<HiPencil />}>Edit</Menus.Button>
+                  <Menus.Button disabled={isCreating} icon={<HiPencil />}>
+                    Edit
+                  </Menus.Button>
                 </Modal.Open>
                 <Modal.Open opens="delete">
                   <Menus.Button icon={<HiTrash />}>Delete</Menus.Button>
@@ -110,7 +112,7 @@ function CabinRow({ cabin }) {
                 <ConfirmDelete
                   resourceName="cabin"
                   onConfirm={() => deleteCabin(cabinId)}
-                  disabled={isDeleting}
+                  disabled={isDeleting || isCreating}
                 />
               </Modal.Window>
             </Menus.Menu>
